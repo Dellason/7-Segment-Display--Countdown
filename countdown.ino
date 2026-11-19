@@ -1,152 +1,133 @@
 // C++ code
 //segements and decimal point 
-int a=8;
-int b=9;
-int c=4;
-int d=3;
-int e=2;
-int f=7;
-int g=6;
-int dp=5;
+// Segment pins
+int a = 8;
+int b = 9;
+int c = 4;
+int d = 3;
+int e = 2;
+int f = 7;
+int g = 6;
+int dp = 5;
 
 void setup()
 {
-pinMode(2, OUTPUT);
-pinMode(3, OUTPUT);  
-pinMode(4, OUTPUT);
-pinMode(5, OUTPUT);
-pinMode(6, OUTPUT);
-pinMode(7, OUTPUT);
-pinMode(8, OUTPUT);
-pinMode(9, OUTPUT);
+  pinMode(a, OUTPUT);
+  pinMode(b, OUTPUT);
+  pinMode(c, OUTPUT);
+  pinMode(d, OUTPUT);
+  pinMode(e, OUTPUT);
+  pinMode(f, OUTPUT);
+  pinMode(g, OUTPUT);
+  pinMode(dp, OUTPUT);
 
+  clearDisplay();
+}
+
+void clearDisplay() {
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  digitalWrite(dp, HIGH);
+}
+
+void displayDigit(int n) {
+  clearDisplay();
+
+  switch(n) {
+    case 0:
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(e, LOW);
+      digitalWrite(f, LOW);
+      break;
+
+    case 1:
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      break;
+
+    case 2:
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(e, LOW);
+      digitalWrite(g, LOW);
+      break;
+
+    case 3:
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(g, LOW);
+      break;
+
+    case 4:
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(f, LOW);
+      digitalWrite(g, LOW);
+      break;
+
+    case 5:
+      digitalWrite(a, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(f, LOW);
+      digitalWrite(g, LOW);
+      break;
+
+    case 6:
+      digitalWrite(a, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(e, LOW);
+      digitalWrite(f, LOW);
+      digitalWrite(g, LOW);
+      break;
+
+    case 7:
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      break;
+
+    case 8:
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(e, LOW);
+      digitalWrite(f, LOW);
+      digitalWrite(g, LOW);
+      break;
+
+    case 9:
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      digitalWrite(c, LOW);
+      digitalWrite(d, LOW);
+      digitalWrite(f, LOW);
+      digitalWrite(g, LOW);
+      break;
+  }
 }
 
 void loop()
 {
-  //zero
-  digitalWrite(a,LOW);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,HIGH);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  //one
-  digitalWrite(a,HIGH);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-  digitalWrite(dp,HIGH);
-  delay(500);
+  for (int i = 9; i >= 0; i--) {
+    displayDigit(i);
+    delay(1000);  // 1 second per number
+  }
 
-  //TWO
-  digitalWrite(a,LOW);
-  digitalWrite(b,LOW);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  
-  //THREE
-  digitalWrite(a,LOW);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  
-  //FOUR
-  digitalWrite(a,HIGH);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
- 
-   //FIVE
-  digitalWrite(a,LOW);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  //SIX
-  digitalWrite(a,LOW);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  //Seven
-  digitalWrite(a,LOW);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  //EIGHT
-  digitalWrite(a,LOW);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  //NINE
-  digitalWrite(a,LOW);
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-  digitalWrite(dp,HIGH);
-  delay(500);
-  
-  //Decimal point
-  digitalWrite(a,HIGH);
-  digitalWrite(b,HIGH);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,HIGH);
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-  digitalWrite(dp,LOW);
-  delay(500);
-
-  //General delay before loop runs again
-  delay(2000);
+  // Pause before starting again
+  clearDisplay();
+  delay(1500);
 }
